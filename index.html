@@ -1,302 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bhashkar | PhD Economics · Macroeconomics</title>
-
-  <!-- SEO Meta -->
-  <meta name="description" content="Bhashkar is a PhD candidate in Economics at [Institution], specialising in Macroeconomics, Monetary Policy, and Financial Economics. Research on monetary transmission, financial frictions, and emerging market dynamics." />
-  <meta name="keywords" content="Bhashkar, PhD Economics, Macroeconomics, Monetary Policy, Financial Economics, Emerging Markets, Working Papers, Economics Research India" />
-  <meta name="author" content="Bhashkar" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://bhashkar1.github.io/" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="profile" />
-  <meta property="og:title" content="Bhashkar — PhD Economist" />
-  <meta property="og:description" content="PhD candidate researching monetary transmission mechanisms and financial frictions in emerging economies." />
-  <meta property="og:url" content="https://bhashkar1.github.io/" />
-  <meta property="og:site_name" content="Bhashkar — Economist" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Bhashkar | PhD Economist" />
-  <meta name="twitter:description" content="Macroeconomics · Monetary Policy · Financial Economics" />
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Bhashkar",
-    "url": "https://bhashkar1.github.io/",
-    "jobTitle": "PhD Candidate in Economics",
-    "affiliation": {
-      "@type": "EducationalOrganization",
-      "name": "Delhi School of Economics"
-    },
-    "knowsAbout": ["Macroeconomics", "Monetary Policy", "Financial Economics", "Emerging Markets"],
-    "email": "mailto:bhashkar@example.ac.in",
-    "sameAs": [
-      "https://scholar.google.com/",
-      "https://ssrn.com/"
-    ]
-  }
-  </script>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bhashkar | PhD Economist · Macro & Financial Economics</title>
+<meta name="description" content="Bhashkar is a PhD candidate in Economics at Delhi School of Economics, specialising in Macroeconomics, Monetary Policy, and Financial Economics."/>
+<meta name="keywords" content="Bhashkar, PhD Economics, Macroeconomics, Monetary Policy, Financial Economics, Emerging Markets, DSE Delhi"/>
+<meta name="author" content="Bhashkar"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://bhashkar1.github.io/"/>
+<meta property="og:type" content="profile"/>
+<meta property="og:title" content="Bhashkar — PhD Economist"/>
+<meta property="og:description" content="PhD candidate researching monetary transmission and financial frictions in emerging economies."/>
+<meta property="og:url" content="https://bhashkar1.github.io/"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bhashkar | PhD Economist"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Bhashkar","url":"https://bhashkar1.github.io/","jobTitle":"PhD Candidate in Economics","affiliation":{"@type":"EducationalOrganization","name":"Delhi School of Economics"},"knowsAbout":["Macroeconomics","Monetary Policy","Financial Economics","Emerging Markets"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-
-  <!-- Cursor Trail Canvas -->
-  <canvas id="cursorCanvas"></canvas>
-
-  <!-- Navigation -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#home" class="nav-logo">B.</a>
-      <ul class="nav-links">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#research" class="nav-link">Research</a></li>
-        <li><a href="#teaching" class="nav-link">Teaching</a></li>
-        <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
-      </ul>
-      <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul>
-      <li><a href="#about" class="mob-link">About</a></li>
-      <li><a href="#research" class="mob-link">Research</a></li>
-      <li><a href="#teaching" class="mob-link">Teaching</a></li>
-      <li><a href="#contact" class="mob-link">Contact</a></li>
+<canvas id="cc"></canvas>
+<nav id="nav">
+  <div class="ni">
+    <a href="#" class="nl">Bhashkar</a>
+    <ul class="nr">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#contact" class="cta">Contact</a></li>
     </ul>
+    <button class="hamburger" id="hbtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
-
-  <!-- ── HERO ── -->
-  <section id="home" class="hero">
-    <div class="hero-texture"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow fade-in-up" style="--delay:0.1s">PhD Candidate · Economics</p>
-      <h1 class="hero-name fade-in-up" style="--delay:0.3s">Bhashkar</h1>
-      <div class="hero-tagline-wrap fade-in-up" style="--delay:0.6s">
-        <span class="hero-tagline-static">Studying </span>
-        <span class="hero-tagline-typed" id="typedText"></span>
-        <span class="cursor-blink">|</span>
-      </div>
-      <p class="hero-institution fade-in-up" style="--delay:0.9s">
-        Delhi School of Economics &nbsp;·&nbsp; University of Delhi
-      </p>
-      <div class="hero-actions fade-in-up" style="--delay:1.1s">
-        <a href="research/cv.pdf" class="btn-primary" target="_blank">Download CV</a>
-        <a href="#research" class="btn-ghost">View Research ↓</a>
-      </div>
-    </div>
-    <div class="hero-scroll-hint fade-in-up" style="--delay:1.4s">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ── ABOUT ── -->
-  <section id="about" class="section about-section">
-    <div class="container">
-      <div class="section-label reveal">01 — About</div>
-      <div class="about-grid">
-        <div class="about-photo-col reveal">
-          <div class="photo-frame">
-            <div class="photo-placeholder">
-              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="60" cy="42" r="22" stroke="#6B1E2E" stroke-width="1.5" fill="none"/>
-                <path d="M18 108c0-23.196 18.804-42 42-42s42 18.804 42 42" stroke="#6B1E2E" stroke-width="1.5" fill="none"/>
-              </svg>
-            </div>
-            <div class="photo-caption">Bhashkar · DSE</div>
-          </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <ul>
+    <li><a href="#about" class="mob-lnk">About</a></li>
+    <li><a href="#research" class="mob-lnk">Research</a></li>
+    <li><a href="#teaching" class="mob-lnk">Teaching</a></li>
+    <li><a href="#contact" class="mob-lnk">Contact</a></li>
+  </ul>
+</div>
+<div class="masthead">
+  <div class="wrap">
+    <div class="masthead-inner">
+      <div class="mh-left">
+        <p class="mh-label">PhD Candidate · Economics</p>
+        <h1 class="mh-name">Bhashkar</h1>
+        <div class="mh-typed-row">
+          <span class="mh-typed-prefix">Studying&nbsp;</span>
+          <span class="mh-typed-text" id="tt"></span><span class="mh-cursor">|</span>
         </div>
-        <div class="about-text-col reveal">
-          <h2 class="section-heading">About Me</h2>
-          <p class="about-bio">
-            I am a PhD candidate in Economics at the <strong>Delhi School of Economics, University of Delhi</strong>, where I work at the intersection of macroeconomics, monetary policy, and financial economics. My research examines how monetary transmission mechanisms operate under financial frictions, with a particular focus on emerging market economies.
-          </p>
-          <p class="about-bio">
-            Before my doctoral studies, I completed [your prior degrees here]. I am broadly interested in the dynamics of credit markets, central bank communication, and the macroeconomic consequences of financial sector vulnerabilities.
-          </p>
-          <div class="about-fields">
-            <div class="field-tag">Monetary Policy</div>
-            <div class="field-tag">Financial Frictions</div>
-            <div class="field-tag">Emerging Markets</div>
-            <div class="field-tag">DSGE Modelling</div>
-            <div class="field-tag">Central Banking</div>
-          </div>
-          <div class="about-links">
-            <a href="mailto:bhashkar@example.ac.in" class="inline-link">bhashkar@example.ac.in</a>
-            <span class="dot-sep">·</span>
-            <a href="https://scholar.google.com" class="inline-link" target="_blank">Google Scholar</a>
-            <span class="dot-sep">·</span>
-            <a href="https://ssrn.com" class="inline-link" target="_blank">SSRN</a>
-          </div>
+        <p class="mh-inst">Delhi School of Economics &nbsp;·&nbsp; University of Delhi</p>
+      </div>
+      <div class="mh-right">
+        <a href="research/cv.pdf" class="btn-cv" target="_blank">Download CV</a>
+        <div class="mh-links">
+          <a href="https://scholar.google.com" class="il" target="_blank">Scholar</a>
+          <span class="dot">·</span>
+          <a href="https://ssrn.com" class="il" target="_blank">SSRN</a>
+          <span class="dot">·</span>
+          <a href="https://twitter.com" class="il" target="_blank">Twitter</a>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- ── RESEARCH ── -->
-  <section id="research" class="section research-section">
-    <div class="container">
-      <div class="section-label reveal">02 — Research</div>
-      <h2 class="section-heading reveal">Working Papers</h2>
-
-      <div class="paper-list">
-
-        <!-- Paper 1 -->
-        <article class="paper-item reveal">
-          <div class="paper-meta">
-            <span class="paper-year">2024</span>
-            <span class="paper-status status-wp">Working Paper</span>
-          </div>
-          <h3 class="paper-title">Monetary Transmission Under Financial Frictions: Evidence from Indian Credit Markets</h3>
-          <p class="paper-authors">Bhashkar</p>
-          <button class="abstract-toggle" aria-expanded="false">Abstract <span class="toggle-arrow">↓</span></button>
-          <div class="abstract-body" hidden>
-            <p>This paper examines the transmission of monetary policy shocks through the banking sector in the presence of financial frictions. Using a novel identification strategy and bank-level data from India, I document significant heterogeneity in the credit channel depending on bank capitalisation and liquidity ratios. A structural DSGE model with financial intermediation rationalises these findings and quantifies the amplification role of balance-sheet constraints. [Replace with your actual abstract.]</p>
-          </div>
-          <div class="paper-links">
-            <a href="#" class="paper-link">PDF</a>
-            <a href="#" class="paper-link">SSRN</a>
-          </div>
-        </article>
-
-        <!-- Paper 2 -->
-        <article class="paper-item reveal">
-          <div class="paper-meta">
-            <span class="paper-year">2023</span>
-            <span class="paper-status status-wp">Working Paper</span>
-          </div>
-          <h3 class="paper-title">Central Bank Communication and Asset Price Volatility in Emerging Economies</h3>
-          <p class="paper-authors">Bhashkar</p>
-          <button class="abstract-toggle" aria-expanded="false">Abstract <span class="toggle-arrow">↓</span></button>
-          <div class="abstract-body" hidden>
-            <p>I study the effect of central bank forward guidance on equity and bond market volatility across a panel of emerging market economies. Using high-frequency event-study methods around monetary policy announcements, I find that clarity of communication reduces volatility persistence but increases immediate market sensitivity. [Replace with your actual abstract.]</p>
-          </div>
-          <div class="paper-links">
-            <a href="#" class="paper-link">PDF</a>
-            <a href="#" class="paper-link">Slides</a>
-          </div>
-        </article>
-
-        <!-- Paper 3 -->
-        <article class="paper-item reveal">
-          <div class="paper-meta">
-            <span class="paper-year">2023</span>
-            <span class="paper-status status-progress">In Progress</span>
-          </div>
-          <h3 class="paper-title">Fiscal Dominance, Debt Monetisation, and Inflation Dynamics: A Historical Perspective</h3>
-          <p class="paper-authors">Bhashkar</p>
-          <button class="abstract-toggle" aria-expanded="false">Abstract <span class="toggle-arrow">↓</span></button>
-          <div class="abstract-body" hidden>
-            <p>This paper provides new historical evidence on the relationship between fiscal dominance and inflation in post-independence India. I construct a novel dataset of RBI balance sheet positions and Treasury financing operations to identify periods of de facto debt monetisation and estimate their inflationary consequences. [Replace with your actual abstract.]</p>
-          </div>
-          <div class="paper-links">
-            <a href="#" class="paper-link">Draft available on request</a>
-          </div>
-        </article>
-
+  </div>
+</div>
+<canvas id="volstrip"></canvas>
+<section id="about">
+  <div class="wrap">
+    <div class="sec-label rev">01 — About</div>
+    <h2 class="sec-head rev">About Me</h2>
+    <div class="about-cols rev">
+      <div>
+        <p class="bio">I am a PhD candidate in Economics at the <strong>Delhi School of Economics, University of Delhi</strong>, working at the intersection of macroeconomics, monetary policy, and financial economics.</p>
+        <p class="bio">My research examines how monetary transmission mechanisms operate under financial frictions, with particular focus on emerging market economies and the role of credit market imperfections in amplifying macroeconomic shocks.</p>
       </div>
-
-      <!-- Publications subsection -->
-      <h2 class="section-heading section-heading-sm reveal" style="margin-top: 5rem;">Publications</h2>
-      <div class="paper-list">
-        <article class="paper-item reveal">
-          <div class="paper-meta">
-            <span class="paper-year">2022</span>
-            <span class="paper-status status-pub">Published</span>
-          </div>
-          <h3 class="paper-title">Title of Published Article. <em>Journal of [Economics], Vol. X, No. Y</em></h3>
-          <p class="paper-authors">Bhashkar &amp; Co-author Name</p>
-          <div class="paper-links">
-            <a href="#" class="paper-link">Journal</a>
-            <a href="#" class="paper-link">PDF</a>
-          </div>
-        </article>
+      <div>
+        <p class="bio">Before my doctoral studies, I completed [prior degrees]. I am broadly interested in credit market dynamics, central bank communication, and the macroeconomic consequences of financial sector vulnerabilities.</p>
+        <div class="tags">
+          <span class="tag">Monetary Policy</span>
+          <span class="tag">Financial Frictions</span>
+          <span class="tag">Emerging Markets</span>
+          <span class="tag">DSGE Modelling</span>
+          <span class="tag">Central Banking</span>
+          <span class="tag">Credit Markets</span>
+        </div>
       </div>
     </div>
-  </section>
-
-  <!-- ── TEACHING ── -->
-  <section id="teaching" class="section teaching-section">
-    <div class="container">
-      <div class="section-label reveal">03 — Teaching</div>
-      <h2 class="section-heading reveal">Teaching</h2>
-      <p class="teaching-intro reveal">I have served as Teaching Assistant and Instructor for the following courses at the Delhi School of Economics.</p>
-
-      <div class="teaching-grid">
-
-        <div class="teaching-card reveal">
-          <div class="teaching-card-year">2023–24</div>
-          <h3 class="teaching-card-title">Macroeconomics II</h3>
-          <p class="teaching-card-role">Teaching Assistant</p>
-          <p class="teaching-card-desc">Graduate course covering dynamic stochastic general equilibrium models, real business cycle theory, and New Keynesian frameworks.</p>
-          <p class="teaching-card-level">MA Economics · DSE</p>
-        </div>
-
-        <div class="teaching-card reveal">
-          <div class="teaching-card-year">2022–23</div>
-          <h3 class="teaching-card-title">Money, Banking &amp; Finance</h3>
-          <p class="teaching-card-role">Teaching Assistant</p>
-          <p class="teaching-card-desc">Undergraduate course on monetary theory, banking system mechanics, central banking, and financial markets in India and globally.</p>
-          <p class="teaching-card-level">BA (Hons) Economics · University of Delhi</p>
-        </div>
-
-        <div class="teaching-card reveal">
-          <div class="teaching-card-year">2022</div>
-          <h3 class="teaching-card-title">Introductory Econometrics</h3>
-          <p class="teaching-card-role">Tutorial Instructor</p>
-          <p class="teaching-card-desc">Weekly tutorials on OLS estimation, hypothesis testing, panel data methods, and introduction to time-series analysis using Stata/R.</p>
-          <p class="teaching-card-level">MA Economics · DSE</p>
-        </div>
-
+    <div class="about-contact rev">
+      <a href="mailto:bhashkar@example.ac.in" class="il">bhashkar@example.ac.in</a>
+      <span class="dot">·</span>
+      <a href="https://scholar.google.com" class="il" target="_blank">Google Scholar</a>
+      <span class="dot">·</span>
+      <a href="https://ssrn.com" class="il" target="_blank">SSRN</a>
+      <span class="dot">·</span>
+      <a href="https://twitter.com" class="il" target="_blank">Twitter / X</a>
+    </div>
+  </div>
+</section>
+<section id="research">
+  <div class="wrap">
+    <div class="sec-label rev">02 — Research</div>
+    <h2 class="sec-head rev">Working Papers</h2>
+    <div class="pl">
+      <article class="pi rev">
+        <div class="pm"><span class="py">2024</span><span class="ps swp">Working Paper</span></div>
+        <h3 class="pt">Monetary Transmission Under Financial Frictions: Evidence from Indian Credit Markets</h3>
+        <p class="pa">Bhashkar</p>
+        <button class="abt" aria-expanded="false">Abstract <span class="arr">↓</span></button>
+        <div class="abody" hidden><p>This paper examines the transmission of monetary policy shocks through the banking sector in the presence of financial frictions. Using a novel identification strategy and bank-level data from India, I document significant heterogeneity in the credit channel depending on bank capitalisation. A structural DSGE model rationalises these findings.</p></div>
+        <div class="plinks"><a href="#" class="plk">PDF</a><a href="#" class="plk">SSRN</a></div>
+      </article>
+      <article class="pi rev" style="transition-delay:.07s">
+        <div class="pm"><span class="py">2023</span><span class="ps swp">Working Paper</span></div>
+        <h3 class="pt">Central Bank Communication and Asset Price Volatility in Emerging Economies</h3>
+        <p class="pa">Bhashkar</p>
+        <button class="abt" aria-expanded="false">Abstract <span class="arr">↓</span></button>
+        <div class="abody" hidden><p>I study the effect of central bank forward guidance on equity and bond market volatility across a panel of emerging market economies using high-frequency event-study methods around monetary policy announcements.</p></div>
+        <div class="plinks"><a href="#" class="plk">PDF</a><a href="#" class="plk">Slides</a></div>
+      </article>
+      <article class="pi rev" style="transition-delay:.14s">
+        <div class="pm"><span class="py">2023</span><span class="ps sip">In Progress</span></div>
+        <h3 class="pt">Fiscal Dominance, Debt Monetisation, and Inflation Dynamics: A Historical Perspective</h3>
+        <p class="pa">Bhashkar</p>
+        <button class="abt" aria-expanded="false">Abstract <span class="arr">↓</span></button>
+        <div class="abody" hidden><p>This paper provides new historical evidence on fiscal dominance and inflation in post-independence India using a novel dataset of RBI balance sheet positions and Treasury financing operations.</p></div>
+        <div class="plinks"><a href="#" class="plk">Draft on request</a></div>
+      </article>
+    </div>
+    <h3 class="sec-head-sm rev">Publications</h3>
+    <div class="pl">
+      <article class="pi rev">
+        <div class="pm"><span class="py">2022</span><span class="ps spb">Published</span></div>
+        <h3 class="pt">Title of Published Article. <em>Journal of [Economics], Vol. X, No. Y</em></h3>
+        <p class="pa">Bhashkar &amp; Co-author</p>
+        <div class="plinks"><a href="#" class="plk">Journal</a><a href="#" class="plk">PDF</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+<section id="teaching">
+  <div class="wrap">
+    <div class="sec-label rev">03 — Teaching</div>
+    <h2 class="sec-head rev">Teaching</h2>
+    <p class="teach-intro rev">Teaching Assistant and Instructor for the following courses at the Delhi School of Economics.</p>
+    <div class="tg">
+      <div class="tc rev"><div class="ty">2023–24</div><h3 class="tt">Macroeconomics II</h3><div class="tr">Teaching Assistant</div><p class="td">DSGE models, real business cycle theory, and New Keynesian frameworks.</p><div class="tl">MA Economics · DSE</div></div>
+      <div class="tc rev" style="transition-delay:.09s"><div class="ty">2022–23</div><h3 class="tt">Money, Banking &amp; Finance</h3><div class="tr">Teaching Assistant</div><p class="td">Monetary theory, banking mechanics, central banking, and financial markets.</p><div class="tl">BA (Hons) Economics · DU</div></div>
+      <div class="tc rev" style="transition-delay:.18s"><div class="ty">2022</div><h3 class="tt">Introductory Econometrics</h3><div class="tr">Tutorial Instructor</div><p class="td">OLS estimation, panel data, and time-series analysis using Stata/R.</p><div class="tl">MA Economics · DSE</div></div>
+    </div>
+  </div>
+</section>
+<footer id="contact">
+  <div class="wrap">
+    <div class="fi rev">
+      <div><div class="fn">Bhashkar</div><div class="ftit">PhD Candidate · Economics<br>Delhi School of Economics</div></div>
+      <div class="fr">
+        <a href="mailto:bhashkar@example.ac.in" class="fe">bhashkar@example.ac.in</a>
+        <div class="fs"><a href="#" class="sk">Google Scholar</a><span>·</span><a href="#" class="sk">SSRN</a><span>·</span><a href="#" class="sk">Twitter / X</a></div>
+        <a href="research/cv.pdf" class="btn-cv" style="font-size:.7rem;padding:.4rem 1rem" target="_blank">Download CV</a>
       </div>
     </div>
-  </section>
-
-  <!-- ── CONTACT / FOOTER ── -->
-  <footer id="contact" class="footer">
-    <div class="container">
-      <div class="footer-inner reveal">
-        <div class="footer-left">
-          <div class="footer-name">Bhashkar</div>
-          <div class="footer-title">PhD Candidate · Economics<br>Delhi School of Economics</div>
-        </div>
-        <div class="footer-right">
-          <a href="mailto:bhashkar@example.ac.in" class="footer-email">bhashkar@example.ac.in</a>
-          <div class="footer-socials">
-            <a href="https://scholar.google.com" target="_blank" class="social-link">Google Scholar</a>
-            <span>·</span>
-            <a href="https://ssrn.com" target="_blank" class="social-link">SSRN</a>
-            <span>·</span>
-            <a href="https://twitter.com" target="_blank" class="social-link">Twitter / X</a>
-          </div>
-          <a href="research/cv.pdf" class="btn-primary btn-sm" target="_blank">Download CV</a>
-        </div>
-      </div>
-      <div class="footer-bottom reveal">
-        <span>© 2024 Bhashkar. All rights reserved.</span>
-        <span>Built with intention.</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+    <div class="fb rev"><span>© 2024 Bhashkar. All rights reserved.</span><span>Built with intention.</span></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
 </body>
 </html>
