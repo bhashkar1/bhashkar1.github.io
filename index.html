@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Bhashkar | PhD Economist · Macro & Financial Economics</title>
+<title>Bhashkar | PhD Economist - Macro and Financial Economics</title>
 <meta name="description" content="Bhashkar is a PhD candidate in Economics at Delhi School of Economics, specialising in Macroeconomics, Monetary Policy, and Financial Economics."/>
 <meta name="keywords" content="Bhashkar, PhD Economics, Macroeconomics, Monetary Policy, Financial Economics, Emerging Markets, DSE Delhi"/>
 <meta name="author" content="Bhashkar"/>
@@ -19,10 +19,117 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/style.css"/>
+<style>
+:root{--bg:#F5F0E8;--bg-d:#EDE7D9;--burg:#6B1E2E;--burg-l:#8B2E42;--gold:#C9963A;--text:#1A1A1A;--mid:#3D3530;--soft:#7A6E64;--div:#D4C9B5;--white:#FDFAF5;--nav-h:56px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:'EB Garamond',Georgia,serif;line-height:1.75;overflow-x:hidden;cursor:none}
+a{color:inherit;text-decoration:none}
+button{border:none;background:none;font:inherit;cursor:none}
+#cc{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.wrap{max-width:980px;margin:0 auto;padding:0 2.5rem}
+#nav{position:sticky;top:0;height:var(--nav-h);background:rgba(245,240,232,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--div);z-index:100}
+.ni{max-width:980px;margin:0 auto;padding:0 2.5rem;height:100%;display:flex;align-items:center;justify-content:space-between}
+.nl{font-family:'Playfair Display',Georgia,serif;font-size:1.35rem;font-weight:700;color:var(--burg);letter-spacing:-.01em}
+.nr{display:flex;gap:1.8rem;list-style:none}
+.nr a{font-family:'DM Sans',system-ui,sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);position:relative;transition:color .2s}
+.nr a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--burg);transition:width .28s}
+.nr a:hover{color:var(--burg)}.nr a:hover::after{width:100%}
+.nr .cta{color:var(--burg);border:1px solid var(--burg);padding:.26rem .8rem;border-radius:2px;transition:background .2s,color .2s}
+.nr .cta:hover{background:var(--burg);color:var(--white)}.nr .cta::after{display:none}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:4px;cursor:none}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--text);transition:all .28s}
+.mob-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--bg);border-bottom:1px solid var(--div);z-index:99;padding:1.2rem 2.5rem 1.8rem;opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .28s,transform .28s}
+.mob-menu.open{opacity:1;transform:translateY(0);pointer-events:all}
+.mob-menu ul{list-style:none}
+.mob-menu li{border-bottom:1px solid var(--div)}
+.mob-lnk{display:block;padding:.75rem 0;font-family:'DM Sans',system-ui,sans-serif;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mid)}
+.masthead{border-bottom:1px solid var(--div);background:var(--bg);position:relative;overflow:hidden}
+.masthead::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 10% 50%,rgba(107,30,46,.05) 0%,transparent 65%);pointer-events:none}
+.masthead-inner{display:grid;grid-template-columns:1fr auto;align-items:end;gap:2rem;padding:3rem 0 2.2rem;position:relative}
+.mh-label{font-family:'DM Sans',system-ui,sans-serif;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--soft);margin-bottom:1rem;display:flex;align-items:center;gap:.65rem;opacity:0;animation:fup .5s .05s forwards}
+.mh-label::before{content:'';display:inline-block;width:24px;height:1px;background:var(--burg)}
+.mh-name{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.6rem,4.8vw,4rem);font-weight:700;line-height:1;letter-spacing:-.03em;color:var(--text);margin-bottom:.55rem;opacity:0;animation:fup .6s .2s forwards}
+.mh-typed-row{display:flex;align-items:baseline;gap:.4rem;font-family:'EB Garamond',Georgia,serif;font-size:clamp(1rem,1.8vw,1.3rem);color:var(--mid);font-style:italic;margin-bottom:1.4rem;opacity:0;animation:fup .6s .38s forwards;min-height:1.8rem;flex-wrap:wrap}
+.mh-typed-prefix{color:var(--soft);font-style:italic}
+.mh-typed-text{color:var(--burg);font-style:italic}
+.mh-cursor{color:var(--burg);animation:blink .85s step-end infinite;font-style:normal}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.mh-inst{font-family:'DM Sans',system-ui,sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);opacity:0;animation:fup .6s .52s forwards}
+.mh-right{display:flex;flex-direction:column;align-items:flex-end;gap:.7rem;padding-bottom:.3rem;opacity:0;animation:fup .6s .45s forwards}
+.btn-cv{font-family:'DM Sans',system-ui,sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.55rem 1.4rem;background:var(--burg);color:var(--white);border:1px solid var(--burg);border-radius:2px;transition:background .2s,transform .15s;display:inline-block}
+.btn-cv:hover{background:var(--burg-l);transform:translateY(-1px)}
+.mh-links{font-family:'DM Sans',system-ui,sans-serif;font-size:.7rem;color:var(--soft);display:flex;gap:.45rem;align-items:center}
+.mh-links a,.il{color:var(--burg);border-bottom:1px solid transparent;transition:border-color .2s}
+.mh-links a:hover,.il:hover{border-color:var(--burg)}
+.dot{color:var(--div)}
+@keyframes fup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+#volstrip{display:block;width:100%;height:52px}
+#about{background:var(--bg-d);padding:3.5rem 0 4rem;border-bottom:1px solid var(--div)}
+.sec-label{font-family:'DM Sans',system-ui,sans-serif;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--burg);margin-bottom:.8rem}
+.sec-head{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:600;letter-spacing:-.02em;color:var(--text);margin-bottom:1.8rem;line-height:1.15}
+.sec-head-sm{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.2rem,2.2vw,1.6rem);font-weight:600;letter-spacing:-.015em;color:var(--text);margin-bottom:1.4rem;margin-top:2.8rem;line-height:1.2}
+.about-cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:1.8rem}
+.bio{font-size:1rem;color:var(--mid);margin-bottom:.9rem;line-height:1.8}
+.bio strong{color:var(--text);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:.38rem;margin-top:.2rem}
+.tag{font-family:'DM Sans',system-ui,sans-serif;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.24rem .65rem;border:1px solid var(--div);color:var(--soft);border-radius:2px;transition:border-color .2s,color .2s}
+.tag:hover{border-color:var(--burg);color:var(--burg)}
+.about-contact{font-family:'DM Sans',system-ui,sans-serif;font-size:.78rem;color:var(--soft);display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;border-top:1px solid var(--div);padding-top:1.2rem}
+#research{padding:3.5rem 0 4rem;border-bottom:1px solid var(--div);background:var(--bg)}
+.pl{display:flex;flex-direction:column}
+.pi{padding:1.7rem 0;border-bottom:1px solid var(--div);position:relative;transition:padding-left .28s}
+.pi:first-child{border-top:1px solid var(--div)}
+.pi::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--burg);transition:width .22s}
+.pi:hover::before{width:3px}.pi:hover{padding-left:1rem}
+.pm{display:flex;align-items:center;gap:.55rem;margin-bottom:.42rem}
+.py{font-family:'DM Sans',system-ui,sans-serif;font-size:.7rem;color:var(--soft)}
+.ps{font-family:'DM Sans',system-ui,sans-serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .52rem;border-radius:2px}
+.swp{background:rgba(107,30,46,.1);color:var(--burg)}
+.sip{background:rgba(201,150,58,.12);color:#8B6820}
+.spb{background:rgba(30,80,50,.1);color:#1E5032}
+.pt{font-family:'Playfair Display',Georgia,serif;font-size:1.02rem;font-weight:600;line-height:1.4;color:var(--text);margin-bottom:.2rem}
+.pt em{font-weight:400}
+.pa{font-family:'DM Sans',system-ui,sans-serif;font-size:.73rem;color:var(--soft);margin-bottom:.55rem}
+.abt{font-family:'DM Sans',system-ui,sans-serif;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--burg);display:flex;align-items:center;gap:.3rem;margin-bottom:.45rem;transition:opacity .2s;cursor:none}
+.abt:hover{opacity:.7}
+.arr{display:inline-block;transition:transform .28s}
+.abt[aria-expanded="true"] .arr{transform:rotate(180deg)}
+.abody{margin-bottom:.55rem;padding:.75rem 1rem;border-left:2px solid var(--div);font-size:.9rem;color:var(--soft);line-height:1.8;animation:fadedown .28s ease}
+@keyframes fadedown{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.plinks{display:flex;gap:.75rem}
+.plk{font-family:'DM Sans',system-ui,sans-serif;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);border-bottom:1px solid var(--div);transition:color .2s,border-color .2s}
+.plk:hover{color:var(--burg);border-color:var(--burg)}
+#teaching{background:var(--bg-d);padding:3.5rem 0 4rem;border-bottom:1px solid var(--div)}
+.teach-intro{font-size:.95rem;color:var(--mid);max-width:460px;margin-bottom:2rem}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--div);border:1px solid var(--div)}
+.tc{background:var(--bg);padding:1.5rem 1.3rem;position:relative;overflow:hidden;transition:background .22s}
+.tc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--burg);transform:scaleX(0);transition:transform .28s;transform-origin:left}
+.tc:hover{background:var(--white)}.tc:hover::after{transform:scaleX(1)}
+.ty{font-family:'DM Sans',system-ui,sans-serif;font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:.6rem}
+.tt{font-family:'Playfair Display',Georgia,serif;font-size:.98rem;font-weight:600;color:var(--text);margin-bottom:.18rem;line-height:1.3}
+.tr{font-family:'DM Sans',system-ui,sans-serif;font-size:.67rem;letter-spacing:.08em;text-transform:uppercase;color:var(--burg);margin-bottom:.6rem}
+.td{font-size:.82rem;color:var(--soft);line-height:1.7;margin-bottom:.7rem}
+.tl{font-family:'DM Sans',system-ui,sans-serif;font-size:.62rem;letter-spacing:.06em;color:var(--soft);border-top:1px solid var(--div);padding-top:.5rem}
+footer{background:var(--text);color:var(--bg);padding:3rem 0 1.8rem}
+.fi{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1);gap:2rem;flex-wrap:wrap}
+.fn{font-family:'Playfair Display',Georgia,serif;font-size:1.75rem;font-weight:600;color:var(--bg);letter-spacing:-.02em;margin-bottom:.35rem}
+.ftit{font-family:'DM Sans',system-ui,sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,240,232,.4);line-height:1.9}
+.fr{display:flex;flex-direction:column;align-items:flex-end;gap:.75rem}
+.fe{font-family:'Playfair Display',Georgia,serif;font-size:.9rem;font-style:italic;color:rgba(245,240,232,.78);border-bottom:1px solid rgba(245,240,232,.18);transition:color .2s,border-color .2s}
+.fe:hover{color:var(--gold);border-color:var(--gold)}
+.fs{display:flex;gap:.4rem;font-family:'DM Sans',system-ui,sans-serif;font-size:.68rem;color:rgba(245,240,232,.36);align-items:center}
+.sk{color:rgba(245,240,232,.5);transition:color .2s}.sk:hover{color:var(--gold)}
+.fb{padding-top:1.4rem;display:flex;justify-content:space-between;font-family:'DM Sans',system-ui,sans-serif;font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,240,232,.24);flex-wrap:wrap;gap:.5rem}
+.rev{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
+.rev.vis{opacity:1;transform:translateY(0)}
+@media(max-width:820px){.masthead-inner{grid-template-columns:1fr}.mh-right{flex-direction:row;align-items:center;padding-bottom:1rem}.about-cols{grid-template-columns:1fr}.tg{grid-template-columns:1fr}.nr{display:none}.hamburger{display:flex}.mob-menu{display:block}}
+@media(max-width:500px){.wrap{padding:0 1.4rem}.masthead-inner{padding:2rem 0 1.5rem}}
+</style>
 </head>
 <body>
 <canvas id="cc"></canvas>
+
 <nav id="nav">
   <div class="ni">
     <a href="#" class="nl">Bhashkar</a>
@@ -35,6 +142,7 @@
     <button class="hamburger" id="hbtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
 <div class="mob-menu" id="mobMenu">
   <ul>
     <li><a href="#about" class="mob-lnk">About</a></li>
@@ -43,35 +151,37 @@
     <li><a href="#contact" class="mob-lnk">Contact</a></li>
   </ul>
 </div>
+
 <div class="masthead">
   <div class="wrap">
     <div class="masthead-inner">
       <div class="mh-left">
-        <p class="mh-label">PhD Candidate · Economics</p>
+        <p class="mh-label">PhD Candidate &middot; Economics</p>
         <h1 class="mh-name">Bhashkar</h1>
         <div class="mh-typed-row">
-          <span class="mh-typed-prefix">Studying&nbsp;</span>
-          <span class="mh-typed-text" id="tt"></span><span class="mh-cursor">|</span>
+          <span class="mh-typed-prefix">Studying&nbsp;</span><span class="mh-typed-text" id="tt"></span><span class="mh-cursor">|</span>
         </div>
-        <p class="mh-inst">Delhi School of Economics &nbsp;·&nbsp; University of Delhi</p>
+        <p class="mh-inst">Delhi School of Economics &nbsp;&middot;&nbsp; University of Delhi</p>
       </div>
       <div class="mh-right">
-        <a href="research/cv.pdf" class="btn-cv" target="_blank">Download CV</a>
+        <a href="research/cv.pdf" class="btn-cv">Download CV</a>
         <div class="mh-links">
-          <a href="https://scholar.google.com" class="il" target="_blank">Scholar</a>
-          <span class="dot">·</span>
-          <a href="https://ssrn.com" class="il" target="_blank">SSRN</a>
-          <span class="dot">·</span>
-          <a href="https://twitter.com" class="il" target="_blank">Twitter</a>
+          <a href="https://scholar.google.com">Scholar</a>
+          <span class="dot">&middot;</span>
+          <a href="https://ssrn.com">SSRN</a>
+          <span class="dot">&middot;</span>
+          <a href="https://twitter.com">Twitter</a>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <canvas id="volstrip"></canvas>
+
 <section id="about">
   <div class="wrap">
-    <div class="sec-label rev">01 — About</div>
+    <div class="sec-label rev">01 &mdash; About</div>
     <h2 class="sec-head rev">About Me</h2>
     <div class="about-cols rev">
       <div>
@@ -92,25 +202,26 @@
     </div>
     <div class="about-contact rev">
       <a href="mailto:bhashkar@example.ac.in" class="il">bhashkar@example.ac.in</a>
-      <span class="dot">·</span>
-      <a href="https://scholar.google.com" class="il" target="_blank">Google Scholar</a>
-      <span class="dot">·</span>
-      <a href="https://ssrn.com" class="il" target="_blank">SSRN</a>
-      <span class="dot">·</span>
-      <a href="https://twitter.com" class="il" target="_blank">Twitter / X</a>
+      <span class="dot">&middot;</span>
+      <a href="https://scholar.google.com" class="il">Google Scholar</a>
+      <span class="dot">&middot;</span>
+      <a href="https://ssrn.com" class="il">SSRN</a>
+      <span class="dot">&middot;</span>
+      <a href="https://twitter.com" class="il">Twitter / X</a>
     </div>
   </div>
 </section>
+
 <section id="research">
   <div class="wrap">
-    <div class="sec-label rev">02 — Research</div>
+    <div class="sec-label rev">02 &mdash; Research</div>
     <h2 class="sec-head rev">Working Papers</h2>
     <div class="pl">
       <article class="pi rev">
         <div class="pm"><span class="py">2024</span><span class="ps swp">Working Paper</span></div>
         <h3 class="pt">Monetary Transmission Under Financial Frictions: Evidence from Indian Credit Markets</h3>
         <p class="pa">Bhashkar</p>
-        <button class="abt" aria-expanded="false">Abstract <span class="arr">↓</span></button>
+        <button class="abt" aria-expanded="false">Abstract <span class="arr">&#8595;</span></button>
         <div class="abody" hidden><p>This paper examines the transmission of monetary policy shocks through the banking sector in the presence of financial frictions. Using a novel identification strategy and bank-level data from India, I document significant heterogeneity in the credit channel depending on bank capitalisation. A structural DSGE model rationalises these findings.</p></div>
         <div class="plinks"><a href="#" class="plk">PDF</a><a href="#" class="plk">SSRN</a></div>
       </article>
@@ -118,7 +229,7 @@
         <div class="pm"><span class="py">2023</span><span class="ps swp">Working Paper</span></div>
         <h3 class="pt">Central Bank Communication and Asset Price Volatility in Emerging Economies</h3>
         <p class="pa">Bhashkar</p>
-        <button class="abt" aria-expanded="false">Abstract <span class="arr">↓</span></button>
+        <button class="abt" aria-expanded="false">Abstract <span class="arr">&#8595;</span></button>
         <div class="abody" hidden><p>I study the effect of central bank forward guidance on equity and bond market volatility across a panel of emerging market economies using high-frequency event-study methods around monetary policy announcements.</p></div>
         <div class="plinks"><a href="#" class="plk">PDF</a><a href="#" class="plk">Slides</a></div>
       </article>
@@ -126,7 +237,7 @@
         <div class="pm"><span class="py">2023</span><span class="ps sip">In Progress</span></div>
         <h3 class="pt">Fiscal Dominance, Debt Monetisation, and Inflation Dynamics: A Historical Perspective</h3>
         <p class="pa">Bhashkar</p>
-        <button class="abt" aria-expanded="false">Abstract <span class="arr">↓</span></button>
+        <button class="abt" aria-expanded="false">Abstract <span class="arr">&#8595;</span></button>
         <div class="abody" hidden><p>This paper provides new historical evidence on fiscal dominance and inflation in post-independence India using a novel dataset of RBI balance sheet positions and Treasury financing operations.</p></div>
         <div class="plinks"><a href="#" class="plk">Draft on request</a></div>
       </article>
@@ -142,31 +253,80 @@
     </div>
   </div>
 </section>
+
 <section id="teaching">
   <div class="wrap">
-    <div class="sec-label rev">03 — Teaching</div>
+    <div class="sec-label rev">03 &mdash; Teaching</div>
     <h2 class="sec-head rev">Teaching</h2>
     <p class="teach-intro rev">Teaching Assistant and Instructor for the following courses at the Delhi School of Economics.</p>
     <div class="tg">
-      <div class="tc rev"><div class="ty">2023–24</div><h3 class="tt">Macroeconomics II</h3><div class="tr">Teaching Assistant</div><p class="td">DSGE models, real business cycle theory, and New Keynesian frameworks.</p><div class="tl">MA Economics · DSE</div></div>
-      <div class="tc rev" style="transition-delay:.09s"><div class="ty">2022–23</div><h3 class="tt">Money, Banking &amp; Finance</h3><div class="tr">Teaching Assistant</div><p class="td">Monetary theory, banking mechanics, central banking, and financial markets.</p><div class="tl">BA (Hons) Economics · DU</div></div>
-      <div class="tc rev" style="transition-delay:.18s"><div class="ty">2022</div><h3 class="tt">Introductory Econometrics</h3><div class="tr">Tutorial Instructor</div><p class="td">OLS estimation, panel data, and time-series analysis using Stata/R.</p><div class="tl">MA Economics · DSE</div></div>
+      <div class="tc rev"><div class="ty">2023&ndash;24</div><h3 class="tt">Macroeconomics II</h3><div class="tr">Teaching Assistant</div><p class="td">DSGE models, real business cycle theory, and New Keynesian frameworks.</p><div class="tl">MA Economics &middot; DSE</div></div>
+      <div class="tc rev" style="transition-delay:.09s"><div class="ty">2022&ndash;23</div><h3 class="tt">Money, Banking &amp; Finance</h3><div class="tr">Teaching Assistant</div><p class="td">Monetary theory, banking mechanics, central banking, and financial markets.</p><div class="tl">BA (Hons) Economics &middot; DU</div></div>
+      <div class="tc rev" style="transition-delay:.18s"><div class="ty">2022</div><h3 class="tt">Introductory Econometrics</h3><div class="tr">Tutorial Instructor</div><p class="td">OLS estimation, panel data, and time-series analysis using Stata/R.</p><div class="tl">MA Economics &middot; DSE</div></div>
     </div>
   </div>
 </section>
+
 <footer id="contact">
   <div class="wrap">
     <div class="fi rev">
-      <div><div class="fn">Bhashkar</div><div class="ftit">PhD Candidate · Economics<br>Delhi School of Economics</div></div>
+      <div><div class="fn">Bhashkar</div><div class="ftit">PhD Candidate &middot; Economics<br>Delhi School of Economics</div></div>
       <div class="fr">
         <a href="mailto:bhashkar@example.ac.in" class="fe">bhashkar@example.ac.in</a>
-        <div class="fs"><a href="#" class="sk">Google Scholar</a><span>·</span><a href="#" class="sk">SSRN</a><span>·</span><a href="#" class="sk">Twitter / X</a></div>
-        <a href="research/cv.pdf" class="btn-cv" style="font-size:.7rem;padding:.4rem 1rem" target="_blank">Download CV</a>
+        <div class="fs"><a href="https://scholar.google.com" class="sk">Google Scholar</a><span>&middot;</span><a href="https://ssrn.com" class="sk">SSRN</a><span>&middot;</span><a href="https://twitter.com" class="sk">Twitter / X</a></div>
+        <a href="research/cv.pdf" class="btn-cv" style="font-size:.7rem;padding:.4rem 1rem">Download CV</a>
       </div>
     </div>
-    <div class="fb rev"><span>© 2024 Bhashkar. All rights reserved.</span><span>Built with intention.</span></div>
+    <div class="fb rev"><span>&copy; 2024 Bhashkar. All rights reserved.</span><span>Built with intention.</span></div>
   </div>
 </footer>
-<script src="js/main.js"></script>
+
+<script>
+(function(){
+  var cc=document.getElementById('cc'),ctx=cc.getContext('2d');
+  var W=window.innerWidth,H=window.innerHeight;
+  cc.width=W;cc.height=H;
+  window.addEventListener('resize',function(){W=window.innerWidth;H=window.innerHeight;cc.width=W;cc.height=H;});
+  var mx=W/2,my=H/2,pmx=mx,pmy=my,spd=0,cycleT=0,pts=[];
+  document.addEventListener('mousemove',function(e){pmx=mx;pmy=my;mx=e.clientX;my=e.clientY;var dx=mx-pmx,dy=my-pmy;spd=Math.sqrt(dx*dx+dy*dy);});
+  function lc(t){return{r:Math.round(107+t*(201-107)),g:Math.round(30+t*(150-30)),b:Math.round(46+t*(58-46))};}
+  function P(x,y,vx,vy,s){this.x=x;this.y=y;this.vx=vx+(Math.random()-.5)*1.1;this.vy=vy+(Math.random()-.5)*1.1;this.ph=Math.random()*Math.PI*2;this.amp=(.3+Math.random()*.65)*Math.min(s*.15,5);this.fq=.08+Math.random()*.07;var ct=Math.max(0,Math.min(1,cycleT+(Math.random()-.5)*.3));var c=lc(0.5-0.5*Math.cos(ct*Math.PI*2));this.r=c.r;this.g=c.g;this.b=c.b;this.al=.45+Math.random()*.3;this.sz=1.1+Math.random()*2;this.dc=.021+Math.random()*.02;this.life=1;this.tick=0;var len=Math.sqrt(vx*vx+vy*vy)||1;this.nx=-vy/len;this.ny=vx/len;}
+  P.prototype.update=function(){this.tick++;this.ph+=this.fq;var o=Math.sin(this.ph)*this.amp*Math.exp(-this.tick*.034);this.x+=this.vx*.67+this.nx*o;this.y+=this.vy*.67+this.ny*o;this.life-=this.dc;this.al*=.963;this.vx*=.91;this.vy*=.91;};
+  P.prototype.draw=function(){ctx.beginPath();ctx.arc(this.x,this.y,this.sz*this.life,0,Math.PI*2);ctx.fillStyle='rgba('+this.r+','+this.g+','+this.b+','+(this.al*this.life)+')';ctx.fill();};
+  P.prototype.dead=function(){return this.life<=.01;};
+  var ls=0;
+  document.addEventListener('mousemove',function(e){var now=performance.now();if(now-ls<15)return;ls=now;var dx=mx-pmx,dy=my-pmy,cnt=Math.min(2+Math.floor(spd*.2),6);for(var i=0;i<cnt;i++)pts.push(new P(e.clientX,e.clientY,dx*.27,dy*.27,spd));});
+  function loop(){
+    ctx.clearRect(0,0,W,H);
+    cycleT+=(0.004+Math.min(spd*.0012,.018));
+    if(cycleT>1)cycleT=0;
+    spd*=.84;
+    var dt=0.5-0.5*Math.cos(cycleT*Math.PI*2),c=lc(dt);
+    for(var i=pts.length-1;i>=0;i--){pts[i].update();pts[i].draw();if(pts[i].dead())pts.splice(i,1);}
+    ctx.beginPath();ctx.arc(mx,my,13,0,Math.PI*2);ctx.strokeStyle='rgba('+c.r+','+c.g+','+c.b+',.38)';ctx.lineWidth=1.5;ctx.stroke();
+    ctx.beginPath();ctx.arc(mx,my,4.5,0,Math.PI*2);ctx.fillStyle='rgb('+c.r+','+c.g+','+c.b+')';ctx.fill();
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  var vs=document.getElementById('volstrip'),vx=vs.getContext('2d');
+  function dv(){var vW=vs.offsetWidth||window.innerWidth;vs.width=vW;vs.height=52;var g=vx.createLinearGradient(0,0,0,52);g.addColorStop(0,'#F5F0E8');g.addColorStop(1,'#EDE7D9');vx.fillStyle=g;vx.fillRect(0,0,vW,52);var L=[{a:9,f:.018,p:0,c:'rgba(107,30,46,.52)',w:1.5},{a:5,f:.030,p:1.4,c:'rgba(201,150,58,.36)',w:1},{a:13,f:.011,p:2.7,c:'rgba(107,30,46,.15)',w:2.5}];function en(x){return 1+.6*Math.sin(x*.005)*Math.cos(x*.0019);}L.forEach(function(l){vx.beginPath();vx.strokeStyle=l.c;vx.lineWidth=l.w;vx.lineJoin='round';for(var x=0;x<=vW;x++){var e=en(x),y=26+Math.sin(x*l.f+l.p)*l.a*e+Math.sin(x*l.f*2.1+l.p*.55)*l.a*.32*e;x===0?vx.moveTo(x,y):vx.lineTo(x,y);}vx.stroke();});}
+  dv();window.addEventListener('resize',dv);
+
+  var ph=['monetary transmission mechanisms','financial frictions in emerging markets','central bank communication & markets','DSGE models with credit constraints','fiscal-monetary policy interactions'];
+  var tel=document.getElementById('tt'),pi=0,ci=0,del=false,pau=false;
+  function type(){if(!tel)return;var cur=ph[pi];if(pau){setTimeout(type,1950);pau=false;return;}if(!del){tel.textContent=cur.slice(0,++ci);if(ci===cur.length){pau=true;del=true;setTimeout(type,1950);return;}setTimeout(type,44);}else{tel.textContent=cur.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%ph.length;setTimeout(type,350);return;}setTimeout(type,24);}}
+  setTimeout(type,800);
+
+  var revs=document.querySelectorAll('.rev');
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -28px 0px'});
+  revs.forEach(function(el){obs.observe(el);});
+
+  document.querySelectorAll('.abt').forEach(function(btn){btn.addEventListener('click',function(){var exp=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!exp));btn.nextElementSibling.hidden=exp;});});
+
+  var hbtn=document.getElementById('hbtn'),mm=document.getElementById('mobMenu');
+  if(hbtn&&mm){hbtn.addEventListener('click',function(){var o=mm.classList.toggle('open');var sp=hbtn.querySelectorAll('span');if(o){sp[0].style.transform='translateY(6.5px) rotate(45deg)';sp[1].style.opacity='0';sp[2].style.transform='translateY(-6.5px) rotate(-45deg)';}else{sp[0].style.transform='';sp[1].style.opacity='';sp[2].style.transform='';}});document.querySelectorAll('.mob-lnk').forEach(function(l){l.addEventListener('click',function(){mm.classList.remove('open');var sp=hbtn.querySelectorAll('span');sp[0].style.transform='';sp[1].style.opacity='';sp[2].style.transform='';});});}
+})();
+</script>
 </body>
 </html>
