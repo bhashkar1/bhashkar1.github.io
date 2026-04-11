@@ -1,6 +1,6 @@
 (function(){
 
-  /* ── 1. CSS Cursor ── */
+  /* ── 1. CSS Cursor b── */
   var dot  = document.getElementById('cursor-dot');
   var ring = document.getElementById('cursor-ring');
   var mx = window.innerWidth/2, my = window.innerHeight/2;
