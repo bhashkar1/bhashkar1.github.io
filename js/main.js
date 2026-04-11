@@ -1,336 +1,177 @@
-/* ═══════════════════════════════════════════════
-   BHASHKAR · main.js
-   Features:
-   1. Volatility cursor trail (time-series shock aesthetic)
-   2. Typing animation on hero tagline
-   3. Scroll-reveal (fade-in-up)
-   4. Parallax hero texture
-   5. Navbar scroll state
-   6. Abstract toggles
-   7. Mobile menu
-═══════════════════════════════════════════════ */
+(function(){
+"use strict";
 
-(function () {
-  "use strict";
+/* ══════════════════════════════════════════
+   CURSOR — always-visible dot + ring
+   Colour CONTINUOUSLY cycles burgundy→gold→burgundy
+   Cycle speeds up on mouse movement
+══════════════════════════════════════════ */
+const cc=document.getElementById('cc'),ctx=cc.getContext('2d');
+let W=window.innerWidth,H=window.innerHeight;
+cc.width=W;cc.height=H;
+window.addEventListener('resize',()=>{W=window.innerWidth;H=window.innerHeight;cc.width=W;cc.height=H;});
 
-  /* ── 1. VOLATILITY CURSOR TRAIL ────────────────
-     Sinusoidal particle trail that mimics a
-     financial time-series / volatility cluster.
-     Particles: burst of small dots that fade and
-     oscillate perpendicular to mouse direction.
-  ─────────────────────────────────────────────── */
-  const canvas = document.getElementById("cursorCanvas");
-  const ctx    = canvas.getContext("2d");
+let mx=W/2,my=H/2,pmx=mx,pmy=my,spd=0;
+const pts=[];
+let cycleT=0;
 
-  let W = window.innerWidth;
-  let H = window.innerHeight;
-  canvas.width  = W;
-  canvas.height = H;
+window.addEventListener('mousemove',e=>{
+  pmx=mx;pmy=my;mx=e.clientX;my=e.clientY;
+  const dx=mx-pmx,dy=my-pmy;
+  spd=Math.sqrt(dx*dx+dy*dy);
+});
 
-  window.addEventListener("resize", () => {
-    W = window.innerWidth;
-    H = window.innerHeight;
-    canvas.width  = W;
-    canvas.height = H;
-  });
+function lerpColor(t){
+  const r=Math.round(107+t*(201-107));
+  const g=Math.round(30 +t*(150-30));
+  const b=Math.round(46 +t*(58-46));
+  return {r,g,b};
+}
 
-  // Mouse position
-  let mx = W / 2, my = H / 2;
-  let prevMx = mx, prevMy = my;
-  let speed = 0;
-
-  window.addEventListener("mousemove", (e) => {
-    prevMx = mx; prevMy = my;
-    mx = e.clientX; my = e.clientY;
-    const dx = mx - prevMx, dy = my - prevMy;
-    speed = Math.sqrt(dx * dx + dy * dy);
-  });
-
-  // Particle pool
-  const particles = [];
-
-  class Particle {
-    constructor(x, y, vx, vy, speed) {
-      this.x    = x;
-      this.y    = y;
-      this.vx   = vx + (Math.random() - 0.5) * 1.5;
-      this.vy   = vy + (Math.random() - 0.5) * 1.5;
-
-      // Phase offset for sinusoidal perpendicular drift
-      this.phase    = Math.random() * Math.PI * 2;
-      this.amp      = (0.4 + Math.random() * 0.8) * Math.min(speed * 0.18, 6);
-      this.freq     = 0.09 + Math.random() * 0.08;
-
-      // Visual
-      const t = Math.random();
-      // Interpolate burgundy → gold
-      this.r    = Math.round(107 + t * (201 - 107));
-      this.g    = Math.round(30  + t * (150 - 30));
-      this.b    = Math.round(46  + t * (58  - 46));
-
-      this.alpha  = 0.55 + Math.random() * 0.35;
-      this.size   = 1.5 + Math.random() * 2.5;
-      this.decay  = 0.025 + Math.random() * 0.025;
-      this.life   = 1;
-
-      // Perpendicular axis (normal to velocity)
-      const len = Math.sqrt(vx * vx + vy * vy) || 1;
-      this.nx = -vy / len;
-      this.ny =  vx / len;
-
-      this.tick = 0;
-    }
-
-    update() {
-      this.tick++;
-      this.phase += this.freq;
-
-      // Sinusoidal drift perpendicular to original direction
-      const osc   = Math.sin(this.phase) * this.amp;
-      const decay = Math.exp(-this.tick * 0.04); // amplitude decays over time
-
-      this.x += this.vx * 0.7 + this.nx * osc * decay;
-      this.y += this.vy * 0.7 + this.ny * osc * decay;
-
-      this.life  -= this.decay;
-      this.alpha *= 0.96;
-      this.vx    *= 0.92;
-      this.vy    *= 0.92;
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size * this.life, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${this.r},${this.g},${this.b},${this.alpha * this.life})`;
-      ctx.fill();
-    }
-
-    isDead() { return this.life <= 0.01; }
+class P{
+  constructor(x,y,vx,vy,s){
+    this.x=x;this.y=y;
+    this.vx=vx+(Math.random()-.5)*1.1;
+    this.vy=vy+(Math.random()-.5)*1.1;
+    this.ph=Math.random()*Math.PI*2;
+    this.amp=(.3+Math.random()*.65)*Math.min(s*.15,5);
+    this.fq=.08+Math.random()*.07;
+    const ct=Math.max(0,Math.min(1,cycleT+(Math.random()-.5)*.3));
+    const c=lerpColor(0.5-0.5*Math.cos(ct*Math.PI*2));
+    this.r=c.r;this.g=c.g;this.b=c.b;
+    this.al=.45+Math.random()*.3;
+    this.sz=1.1+Math.random()*2;
+    this.dc=.021+Math.random()*.02;
+    this.life=1;this.tick=0;
+    const len=Math.sqrt(vx*vx+vy*vy)||1;
+    this.nx=-vy/len;this.ny=vx/len;
   }
-
-  // Spawn particles on mouse move
-  let lastSpawn = 0;
-  window.addEventListener("mousemove", (e) => {
-    const now = performance.now();
-    if (now - lastSpawn < 18) return; // throttle ~55fps
-    lastSpawn = now;
-
-    const dx = mx - prevMx, dy = my - prevMy;
-    const count = Math.min(2 + Math.floor(speed * 0.25), 7);
-
-    for (let i = 0; i < count; i++) {
-      particles.push(new Particle(e.clientX, e.clientY, dx * 0.3, dy * 0.3, speed));
-    }
-  });
-
-  // Dot cursor
-  function drawCursor() {
-    ctx.beginPath();
-    ctx.arc(mx, my, 4, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(107,30,46,0.85)";
-    ctx.fill();
-
-    ctx.beginPath();
-    ctx.arc(mx, my, 10, 0, Math.PI * 2);
-    ctx.strokeStyle = "rgba(107,30,46,0.25)";
-    ctx.lineWidth = 1;
-    ctx.stroke();
+  update(){
+    this.tick++;this.ph+=this.fq;
+    const osc=Math.sin(this.ph)*this.amp*Math.exp(-this.tick*.034);
+    this.x+=this.vx*.67+this.nx*osc;
+    this.y+=this.vy*.67+this.ny*osc;
+    this.life-=this.dc;this.al*=.963;
+    this.vx*=.91;this.vy*=.91;
   }
-
-  function animateCursor() {
-    ctx.clearRect(0, 0, W, H);
-
-    for (let i = particles.length - 1; i >= 0; i--) {
-      particles[i].update();
-      particles[i].draw();
-      if (particles[i].isDead()) particles.splice(i, 1);
-    }
-
-    drawCursor();
-    requestAnimationFrame(animateCursor);
+  draw(){
+    ctx.beginPath();ctx.arc(this.x,this.y,this.sz*this.life,0,Math.PI*2);
+    ctx.fillStyle=`rgba(${this.r},${this.g},${this.b},${this.al*this.life})`;ctx.fill();
   }
-  animateCursor();
+  dead(){return this.life<=.01;}
+}
 
+let ls=0;
+window.addEventListener('mousemove',e=>{
+  const now=performance.now();
+  if(now-ls<15)return;ls=now;
+  const dx=mx-pmx,dy=my-pmy;
+  const cnt=Math.min(2+Math.floor(spd*.2),6);
+  for(let i=0;i<cnt;i++) pts.push(new P(e.clientX,e.clientY,dx*.27,dy*.27,spd));
+});
 
-  /* ── 2. TYPING ANIMATION ────────────────────────
-     Cycles through research themes in italic.
-  ─────────────────────────────────────────────── */
-  const phrases = [
-    "monetary transmission mechanisms",
-    "financial frictions in emerging markets",
-    "central bank communication & markets",
-    "DSGE models with credit constraints",
-    "fiscal-monetary policy interactions",
+function loop(){
+  ctx.clearRect(0,0,W,H);
+  // advance cycle — base slow pulse, faster with movement
+  const boost=Math.min(spd*.0012,.018);
+  cycleT+=(0.004+boost);
+  if(cycleT>1) cycleT=0;
+  spd*=.84;
+  const displayT=0.5-0.5*Math.cos(cycleT*Math.PI*2);
+  const c=lerpColor(displayT);
+  for(let i=pts.length-1;i>=0;i--){
+    pts[i].update();pts[i].draw();
+    if(pts[i].dead())pts.splice(i,1);
+  }
+  // outer ring
+  ctx.beginPath();ctx.arc(mx,my,13,0,Math.PI*2);
+  ctx.strokeStyle=`rgba(${c.r},${c.g},${c.b},.35)`;
+  ctx.lineWidth=1.5;ctx.stroke();
+  // solid dot — always visible
+  ctx.beginPath();ctx.arc(mx,my,4,0,Math.PI*2);
+  ctx.fillStyle=`rgb(${c.r},${c.g},${c.b})`;
+  ctx.fill();
+  requestAnimationFrame(loop);
+}
+loop();
+
+/* ══ VOLATILITY STRIP ══ */
+const vs=document.getElementById('volstrip'),vctx=vs.getContext('2d');
+function drawVol(){
+  const vW=vs.offsetWidth||window.innerWidth;
+  vs.width=vW;vs.height=52;
+  const g=vctx.createLinearGradient(0,0,0,52);
+  g.addColorStop(0,'#F5F0E8');g.addColorStop(1,'#EDE7D9');
+  vctx.fillStyle=g;vctx.fillRect(0,0,vW,52);
+  const lines=[
+    {amp:9, freq:.018,phase:0,   color:'rgba(107,30,46,.52)',lw:1.5},
+    {amp:5, freq:.030,phase:1.4, color:'rgba(201,150,58,.36)',lw:1},
+    {amp:13,freq:.011,phase:2.7, color:'rgba(107,30,46,.15)',lw:2.5},
   ];
-
-  const typedEl   = document.getElementById("typedText");
-  let   pIdx      = 0;
-  let   cIdx      = 0;
-  let   deleting  = false;
-  let   paused    = false;
-
-  function typeLoop() {
-    if (!typedEl) return;
-    const current = phrases[pIdx];
-
-    if (paused) {
-      setTimeout(typeLoop, 1800);
-      paused = false;
-      return;
+  function env(x){return 1+.6*Math.sin(x*.005)*Math.cos(x*.0019);}
+  lines.forEach(l=>{
+    vctx.beginPath();vctx.strokeStyle=l.color;vctx.lineWidth=l.lw;vctx.lineJoin='round';
+    for(let x=0;x<=vW;x++){
+      const e=env(x);
+      const y=26+Math.sin(x*l.freq+l.phase)*l.amp*e+Math.sin(x*l.freq*2.1+l.phase*.55)*l.amp*.32*e;
+      x===0?vctx.moveTo(x,y):vctx.lineTo(x,y);
     }
+    vctx.stroke();
+  });
+}
+drawVol();
+window.addEventListener('resize',drawVol);
 
-    if (!deleting) {
-      typedEl.textContent = current.slice(0, ++cIdx);
-      if (cIdx === current.length) {
-        paused    = true;
-        deleting  = true;
-        setTimeout(typeLoop, 1800);
-        return;
-      }
-      setTimeout(typeLoop, 48);
-    } else {
-      typedEl.textContent = current.slice(0, --cIdx);
-      if (cIdx === 0) {
-        deleting = false;
-        pIdx = (pIdx + 1) % phrases.length;
-        setTimeout(typeLoop, 400);
-        return;
-      }
-      setTimeout(typeLoop, 28);
-    }
+/* ══ TYPING ══ */
+const phrases=['monetary transmission mechanisms','financial frictions in emerging markets','central bank communication & markets','DSGE models with credit constraints','fiscal-monetary policy interactions'];
+const tel=document.getElementById('tt');
+let pi=0,ci=0,del=false,pau=false;
+function type(){
+  if(!tel)return;
+  const cur=phrases[pi];
+  if(pau){setTimeout(type,1950);pau=false;return;}
+  if(!del){
+    tel.textContent=cur.slice(0,++ci);
+    if(ci===cur.length){pau=true;del=true;setTimeout(type,1950);return;}
+    setTimeout(type,44);
+  }else{
+    tel.textContent=cur.slice(0,--ci);
+    if(ci===0){del=false;pi=(pi+1)%phrases.length;setTimeout(type,350);return;}
+    setTimeout(type,24);
   }
-  setTimeout(typeLoop, 1200);
+}
+setTimeout(type,800);
 
+/* ══ SCROLL REVEAL ══ */
+const revs=document.querySelectorAll('.rev');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
+},{threshold:.08,rootMargin:'0px 0px -28px 0px'});
+revs.forEach(el=>obs.observe(el));
 
-  /* ── 3. SCROLL REVEAL ───────────────────────────
-     IntersectionObserver adds .visible class.
-  ─────────────────────────────────────────────── */
-  const revealEls = document.querySelectorAll(".reveal, .fade-in-up");
-
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -48px 0px" }
-  );
-
-  revealEls.forEach((el) => revealObserver.observe(el));
-
-  // Stagger sibling reveals inside sections
-  document.querySelectorAll(".paper-list, .teaching-grid").forEach((parent) => {
-    const children = parent.querySelectorAll(".reveal");
-    children.forEach((child, i) => {
-      child.style.transitionDelay = `${i * 0.1}s`;
-    });
+/* ══ ABSTRACTS ══ */
+document.querySelectorAll('.abt').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const exp=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',String(!exp));
+    btn.nextElementSibling.hidden=exp;
   });
+});
 
-
-  /* ── 4. PARALLAX HERO ───────────────────────────
-     Gentle vertical shift on the texture overlay.
-  ─────────────────────────────────────────────── */
-  const heroTexture = document.querySelector(".hero-texture");
-
-  window.addEventListener("scroll", () => {
-    if (!heroTexture) return;
-    const scrollY = window.scrollY;
-    heroTexture.style.transform = `translateY(${scrollY * 0.25}px)`;
-  }, { passive: true });
-
-
-  /* ── 5. NAVBAR SCROLL STATE ─────────────────────
-  ─────────────────────────────────────────────── */
-  const navbar = document.getElementById("navbar");
-
-  window.addEventListener("scroll", () => {
-    navbar.classList.toggle("scrolled", window.scrollY > 60);
-  }, { passive: true });
-
-
-  /* ── 6. ABSTRACT TOGGLES ────────────────────────
-  ─────────────────────────────────────────────── */
-  document.querySelectorAll(".abstract-toggle").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const expanded = btn.getAttribute("aria-expanded") === "true";
-      const body     = btn.nextElementSibling;
-
-      btn.setAttribute("aria-expanded", String(!expanded));
-
-      if (expanded) {
-        body.hidden = true;
-      } else {
-        body.hidden = false;
-      }
-    });
+/* ══ MOBILE MENU ══ */
+const hbtn=document.getElementById('hbtn'),mobMenu=document.getElementById('mobMenu');
+if(hbtn&&mobMenu){
+  hbtn.addEventListener('click',()=>{
+    const open=mobMenu.classList.toggle('open');
+    const sp=hbtn.querySelectorAll('span');
+    if(open){sp[0].style.transform='translateY(6.5px) rotate(45deg)';sp[1].style.opacity='0';sp[2].style.transform='translateY(-6.5px) rotate(-45deg)';}
+    else{sp[0].style.transform='';sp[1].style.opacity='';sp[2].style.transform='';}
   });
-
-
-  /* ── 7. MOBILE MENU ─────────────────────────────
-  ─────────────────────────────────────────────── */
-  const navToggle  = document.getElementById("navToggle");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  navToggle.addEventListener("click", () => {
-    const open = mobileMenu.classList.toggle("open");
-    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-    // animate hamburger → X
-    const spans = navToggle.querySelectorAll("span");
-    if (open) {
-      spans[0].style.transform = "translateY(6.5px) rotate(45deg)";
-      spans[1].style.opacity   = "0";
-      spans[2].style.transform = "translateY(-6.5px) rotate(-45deg)";
-    } else {
-      spans[0].style.transform = "";
-      spans[1].style.opacity   = "";
-      spans[2].style.transform = "";
-    }
-  });
-
-  // Close mobile menu on link click
-  document.querySelectorAll(".mob-link").forEach((link) => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.remove("open");
-      const spans = navToggle.querySelectorAll("span");
-      spans[0].style.transform = "";
-      spans[1].style.opacity   = "";
-      spans[2].style.transform = "";
-    });
-  });
-
-  // Close on outside click
-  document.addEventListener("click", (e) => {
-    if (!mobileMenu.contains(e.target) && !navToggle.contains(e.target)) {
-      mobileMenu.classList.remove("open");
-    }
-  });
-
-
-  /* ── 8. ACTIVE NAV LINK ON SCROLL ──────────────
-  ─────────────────────────────────────────────── */
-  const sections = document.querySelectorAll("section[id], footer[id]");
-  const navLinks = document.querySelectorAll(".nav-link");
-
-  const activeObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          navLinks.forEach((link) => {
-            link.classList.toggle(
-              "active",
-              link.getAttribute("href") === `#${id}`
-            );
-          });
-        }
-      });
-    },
-    { threshold: 0.4 }
-  );
-
-  sections.forEach((s) => activeObserver.observe(s));
+  document.querySelectorAll('.mob-lnk').forEach(l=>l.addEventListener('click',()=>{
+    mobMenu.classList.remove('open');
+    const sp=hbtn.querySelectorAll('span');
+    sp[0].style.transform='';sp[1].style.opacity='';sp[2].style.transform='';
+  }));
+}
 
 })();
