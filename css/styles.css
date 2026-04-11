@@ -101,6 +101,49 @@ footer{background:var(--text);color:var(--bg);padding:3rem 0 1.8rem}
 .fb{padding-top:1.4rem;display:flex;justify-content:space-between;font-family:'DM Sans',system-ui,sans-serif;font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,240,232,.24);flex-wrap:wrap;gap:.5rem}
 .rev{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
 .rev.vis{opacity:1;transform:translateY(0)}
-.photo-placeholder{width:170px;height:210px;border:1.5px dashed var(--burg);display:flex;align-items:center;justify-content:center;font-family:'DM Sans',system-ui,sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--burg);background:rgba(107,30,46,.03);margin-top:.8rem;flex-shrink:0}
-@media(max-width:820px){.masthead-inner{grid-template-columns:1fr}.mh-right{flex-direction:row;align-items:center;padding-bottom:1rem}.about-cols{grid-template-columns:1fr}.tg{grid-template-columns:1fr}.nr{display:none}.hamburger{display:flex}.mob-menu{display:block}.photo-placeholder{width:140px;height:175px}}
+@media(max-width:820px){.masthead-inner{grid-template-columns:1fr}.mh-right{flex-direction:row;align-items:center;padding-bottom:1rem}.about-cols{grid-template-columns:1fr}.tg{grid-template-columns:1fr}.nr{display:none}.hamburger{display:flex}.mob-menu{display:block}}
 @media(max-width:500px){.wrap{padding:0 1.4rem}.masthead-inner{padding:2rem 0 1.5rem}}
+
+.photo-placeholder{width:170px;height:210px;border:1.5px dashed var(--burg);display:flex;align-items:center;justify-content:center;font-family:'DM Sans',system-ui,sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--burg);background:rgba(107,30,46,.03);margin-top:.8rem;flex-shrink:0}
+@media(max-width:820px){.photo-placeholder{width:140px;height:175px}}
+
+/* ── Precision economist cursor ── */
+#cursor-dot {
+  position: fixed;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #C9963A;
+  pointer-events: none;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+  top: 50%; left: 50%;
+  box-shadow: 0 0 8px 2px rgba(201,150,58,0.7);
+  transition: width .15s, height .15s, background .05s;
+}
+#cursor-ring {
+  position: fixed;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(201,150,58,0.6);
+  pointer-events: none;
+  z-index: 999998;
+  transform: translate(-50%, -50%);
+  top: 50%; left: 50%;
+}
+/* crosshair tick marks on ring */
+#cursor-ring::before, #cursor-ring::after {
+  content: '';
+  position: absolute;
+  background: rgba(201,150,58,0.8);
+}
+#cursor-ring::before {
+  width: 1px; height: 6px;
+  left: 50%; top: -8px;
+  transform: translateX(-50%);
+}
+#cursor-ring::after {
+  width: 6px; height: 1px;
+  top: 50%; left: -8px;
+  transform: translateY(-50%);
+}
+body:hover #cursor-dot { width: 6px; height: 6px; }
